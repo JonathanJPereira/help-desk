@@ -1,10 +1,8 @@
 <?php 
 
-    if (isset($_GET['login']) AND $_GET['login'] === 'erro') {      
-      $exibe_mensagem_erro = true;    
+    session_start();
 
-    }
-
+    
 ?>
 
 

@@ -1,3 +1,13 @@
+<?php 
+
+  session_start();
+  
+  if (!isset($_SESSION['autenticado']) AND $_SESSION['autenticado'] === false) {
+    header('Location: index.php');
+  }
+
+?>
+
 <html>
   <head>
     <meta charset="utf-8" />

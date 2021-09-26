@@ -1,5 +1,9 @@
 <?php 
 
+	session_start();
+
+
+
 	// Capturando os dados do formulário com requisição POST
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
@@ -29,8 +33,10 @@
 
 	// Exibindo a mensagem
 	if ($aprovado) {
+		$_SESSION['autenticado'] = true;
 		header('Location: home.php');
 	} else {
+		$_SESSION['autenticado'] = false;
 		header('Location: index.php?login=erro');
 	}
 
