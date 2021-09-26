@@ -1,13 +1,10 @@
 <?php 
 
+	// Capturando os dados do formulário com requisição POST
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
 
-	// $usuario = array(
-	// 	"email" => "jonathanjosepereira58@gmail.com",
-	// 	"senha" => "123456"
-	// );
-
+	// Array de usuarios -- Exemplo de como vem o dado do banco de dados
 	$usuarios = array(
 		array(
 		"email" => "jonathanjosepereira58@gmail.com",
@@ -19,10 +16,9 @@
 		)
 	);
 
-
-
+	// Procurando o email e senha e fazendo a validação
 	foreach ($usuarios as $usuario) {
-		if (in_array($email, $usuario) AND in_array($senha, $usuario)) {
+		if ($usuario['email'] === $email AND $usuario['senha'] === $senha) {
 		 	$aprovado = true;
 		 	break;
 		 } else {
@@ -31,18 +27,11 @@
 
 	}
 
+	// Exibindo a mensagem
 	if ($aprovado) {
-		echo "O usuario com o Email: $email foi aprovado";
+		header('Location: home.php');
 	} else {
-		echo "O usuario com o Email: $email não foi aprovado";
+		header('Location: index.php?login=erro');
 	}
-
-	// if ($usuario['email'] === $email AND $usuario['senha'] === $senha) {
-	// 	echo "aprovado";
-	// } else {
-	// 	echo "Negado";
-	// }
-
-
 
 ?>
